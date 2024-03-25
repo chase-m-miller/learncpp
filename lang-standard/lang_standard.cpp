@@ -26,11 +26,9 @@ int main() {
     for (int i = 0; i < numStandards; ++i) {
         if (standard <= stdCode[i]) {
             std::cout << stdName[i];
-
             if (standard < stdCode[i]) {
                 std::cout << " (preview)";
             }
-
             break;
         }
     }
