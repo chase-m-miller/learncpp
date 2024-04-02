@@ -1,7 +1,7 @@
 #include "io.h"
 #include <iostream>
 
-#define ENABLE_DEBUG
+//#define ENABLE_DEBUG
 
 int readNumber()
 {
