@@ -6,7 +6,8 @@ int main()
     char input {};
     std::cin >> input;
 
-    std::cout << "Character '" << input << "' has an integer value of '" << static_cast<int>(input) << "'.\n";
+    int implicit_conversion_input {input};
+    std::cout << "Character '" << input << "' has an integer value of '" << implicit_conversion_input << "'.\n";
 
     return 0;
 }
