@@ -9,12 +9,17 @@ double getDouble()
     return x;
 }
 
-double performOperation(double x, double y)
+char getOperator()
 {
     std::cout << "Enter +, -, *, or /: ";
     char operation {};
     std::cin >> operation;
 
+    return operation;
+}
+
+double performCalculation(double x, double y, char operation)
+{
     if (operation == '+')
         return x + y;
     else if (operation == '-')
@@ -23,16 +28,15 @@ double performOperation(double x, double y)
         return x * y;
     else if (operation == '/')
         return x / y;
-    else
-        return 1;
 }
 
 int main()
 {
     double x {getDouble()};
     double y {getDouble()};
+    char operation {getOperator()};
 
-    double result {performOperation(x, y)};
+    double result {performCalculation(x, y, operation)};
     std::cout << "The result is: " << result << '\n';
 
     return 0;
