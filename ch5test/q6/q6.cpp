@@ -6,13 +6,13 @@ constexpr std::string_view getQuantityPhrase(int apples)
 {
     if (apples < 0)
         return "negative";
-    else if (apples == 0)
+    if (apples == 0)
         return "no";
-    else if (apples == 1)
+    if (apples == 1)
         return "a single";
-    else if (apples == 2)
+    if (apples == 2)
         return "a couple of";
-    else if (apples == 3)
+    if (apples == 3)
         return "a few";
     else
         return "many";
