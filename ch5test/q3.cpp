@@ -1,3 +1,5 @@
+#include <iostream>
+
 // gets tower height from user and returns it
 double getTowerHeight()
 {
@@ -8,13 +10,13 @@ double getTowerHeight()
 }
 
 // Returns ball height from ground after "seconds" seconds
-double calculateBallHeight(double towerHeight, int seconds)
+constexpr double calculateBallHeight(double towerHeight, int seconds)
 {
-	double gravity{ 9.8 };
+	constexpr double gravity{ 9.8 };
 
 	// Using formula: [ s = u * t + (a * t^2) / 2 ], here u(initial velocity) = 0
-	double distanceFallen{ (gravity * (seconds * seconds)) / 2.0 };
-	double currentHeight{ towerHeight - distanceFallen };
+	const double distanceFallen{ (gravity * (seconds * seconds)) / 2.0 };
+	const double currentHeight{ towerHeight - distanceFallen };
 
 	return currentHeight;
 }
@@ -32,13 +34,13 @@ void printBallHeight(double ballHeight, int seconds)
 // This is a helper function to make it easier to do this
 void printCalculatedBallHeight(double towerHeight, int seconds)
 {
-	double ballHeight{ calculateBallHeight(towerHeight, seconds) };
+	const double ballHeight{ calculateBallHeight(towerHeight, seconds) };
 	printBallHeight(ballHeight, seconds);
 }
 
 int main()
 {
-	double towerHeight{ getTowerHeight() };
+	const double towerHeight{ getTowerHeight() };
 
 	printCalculatedBallHeight(towerHeight, 0);
 	printCalculatedBallHeight(towerHeight, 1);
