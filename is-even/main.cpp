@@ -1,13 +1,17 @@
 #include <iostream>
+#include <string>
+#include <string_view>
 
-constexpr bool isEven(int x)
+constexpr std::string isEven(int x)
 {
-    return (x % 2) == 0;
+    if (x % 2 == 0)
+        return std::to_string(x) + " is even.";
+    else
+        return std::to_string(x) + " is odd.";
 }
 
 int main()
 {
-    std::cout << std::boolalpha;
     std::cout << isEven(42) << '\n';
     std::cout << isEven(13) << '\n';
 
