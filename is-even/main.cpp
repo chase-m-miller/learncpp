@@ -1,18 +1,21 @@
 #include <iostream>
 #include <string>
 
-constexpr std::string isEven(int x)
+constexpr bool isEven(int x)
 {
-    if (x % 2 == 0)
-        return std::to_string(x) + " is even.";
-    else
-        return std::to_string(x) + " is odd.";
+    return (x % 2) == 0;
 }
 
 int main()
 {
-    std::cout << isEven(42) << '\n';
-    std::cout << isEven(13) << '\n';
+    std::cout << "Enter a number: ";
+    int x{};
+    std::cin >> x;
+
+    if (isEven(x))
+        std::cout << x << " is even.\n";
+    else
+        std::cout << x << " is odd.\n";
 
     return 0;
 }
