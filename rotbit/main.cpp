@@ -5,7 +5,7 @@
 std::bitset<4> rotl(std::bitset<4> bits)
 {
     if (bits.test(3))
-        return bits << 1 | std::bitset<4>{0b0001};
+        return (bits << 1) | (std::bitset<4>{0b0001});
     else
         return bits << 1;
 
