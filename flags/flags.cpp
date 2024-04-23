@@ -13,6 +13,7 @@ int main()
     std::uint8_t myArticleFlags{ option_favorited };
 
     // Place all lines of code for the following quiz here
+    myArticleFlags |= option_viewed;
 
     std::cout << std::bitset<8>{ myArticleFlags } << '\n';
 
