@@ -17,5 +17,12 @@ int main()
 
     std::cout << std::bitset<8>{ myArticleFlags } << '\n';
 
+    std::cout << std::boolalpha;
+    std::cout << "Has the article been deleted? " << static_cast<bool>(myArticleFlags & option_deleted) << '\n';
+
+    myArticleFlags &= ~option_favorited;
+
+    std::cout << std::bitset<8>{ myArticleFlags } << '\n';
+
     return 0;
 }
