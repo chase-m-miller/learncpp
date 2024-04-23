@@ -22,6 +22,7 @@ int main()
 
     myArticleFlags &= ~option_favorited;
 
+    std::cout << "Is the article favorited? " << static_cast<bool>(myArticleFlags & option_favorited) << '\n';
     std::cout << std::bitset<8>{ myArticleFlags } << '\n';
 
     return 0;
