@@ -2,13 +2,12 @@
 
 int main()
 {
-    int smaller {};
-    int larger {};
-
     std::cout << "Enter the first number: ";
+    int smaller {};
     std::cin >> smaller;
 
     std::cout << "Enter the second number: ";
+    int larger {};
     std::cin >> larger;
 
     if (smaller > larger)
