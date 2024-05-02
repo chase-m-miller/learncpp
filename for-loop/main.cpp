@@ -3,12 +3,15 @@
 
 int main()
 {
-    std::string alphabet;
+    using std::string;
+    using std::cout;
+
+    string alphabet;
 
     for (char letter {'a'}; letter <= 'z'; ++letter)
         alphabet += letter;
 
-    std::cout << alphabet;
+    cout << alphabet;
 
     return 0;
 }
