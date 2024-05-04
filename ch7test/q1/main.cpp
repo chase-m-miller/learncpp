@@ -8,9 +8,11 @@ int main()
 
 
 	if (num < 0)
+    {
 		std::cout << "Negative number entered.  Making positive.\n";
 		num = -num;
-
+    }
+    
 	std::cout << "You entered: " << num;
 
 	return 0;
