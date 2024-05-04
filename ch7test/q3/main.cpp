@@ -1,5 +1,12 @@
 #include <iostream>
 
+int accumulate(int x)
+{
+    static int total{};
+
+    return total += x;
+}
+
 int main()
 {
     std::cout << accumulate(4) << '\n'; // prints 4
