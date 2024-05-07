@@ -2,8 +2,8 @@
 
 int main()
 {
-    int outer{ 5 };
-    while (outer >= 1)
+    int outer{ 1 };
+    while (outer <= 5)
     {
         int inner{ 5 };
         while (inner >= outer)
@@ -12,6 +12,6 @@ int main()
             --inner;
         }
         std::cout << '\n';
-        --outer;
+        ++outer;
     }
 }
