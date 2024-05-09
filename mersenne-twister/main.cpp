@@ -5,9 +5,7 @@
 int main()
 {
     // seed mersenne twister using steady_clock
-    std::mt19937 mt{ static_cast<std::mt19937::result_type>(
-        std::chrono::steady_clock::now().time_since_epoch().count()
-    ) };
+    std::mt19937 mt{ std::random_device{}() };
 
     // create a RNG that generates uniform numbers between 1 and 6
     std::uniform_int_distribution die6{ 1, 6 };
