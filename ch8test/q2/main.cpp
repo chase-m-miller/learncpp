@@ -6,8 +6,27 @@
 
 bool isPrime(int x)
 {
-    return false;
-    // write this function using a for loop
+    switch (x)
+    {
+    case 0:
+        return false;
+    case 1:
+        return false;
+    case 2:
+        return true;
+    default:
+        break;
+    }
+
+    for (int divisor{ 2 }; divisor < x; ++divisor)
+    {
+        if (x % divisor == 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int main()
