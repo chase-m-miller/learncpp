@@ -1,5 +1,10 @@
 #include <iostream>
 
+namespace Constants
+{
+    constexpr double gravity{ 9.8 };
+}
+
 // Gets tower height from user and returns it
 double getTowerHeight()
 {
@@ -10,13 +15,11 @@ double getTowerHeight()
 }
 
 // Returns the current ball height after "seconds" seconds
-double calculateBallHeight(double towerHeight, int seconds)
+constexpr double calculateBallHeight(double towerHeight, int seconds)
 {
-    const double gravity{ 9.8 };
-
     // Using formula: s = (u * t) + (a * t^2) / 2
     // here u (initial velocity) = 0, so (u * t) = 0
-    const double fallDistance{ gravity * (seconds * seconds) / 2.0 };
+    const double fallDistance{ Constants::gravity * (seconds * seconds) / 2.0 };
     const double ballHeight{ towerHeight - fallDistance };
 
     //If the ball would be under the ground, place it on the ground
@@ -37,22 +40,23 @@ void printBallHeight(double ballHeight, int seconds)
 
 // Calculates the current ball height and then prints it
 // This is a helper function to make it easier to do this
-void calculateAndPrintBallHeight(double towerHeight, int seconds)
+double calculateAndPrintBallHeight(double towerHeight, int seconds)
 {
     double ballHeight{ calculateBallHeight(towerHeight, seconds) };
     printBallHeight(ballHeight, seconds);
+
+    return ballHeight;
 }
 
 int main()
 {
     double towerHeight{ getTowerHeight() };
-
-    calculateAndPrintBallHeight(towerHeight, 0);
-    calculateAndPrintBallHeight(towerHeight, 1);
-    calculateAndPrintBallHeight(towerHeight, 2);
-    calculateAndPrintBallHeight(towerHeight, 3);
-    calculateAndPrintBallHeight(towerHeight, 4);
-    calculateAndPrintBallHeight(towerHeight, 5);
+    
+    int seconds{ 0 };
+    while (calculateAndPrintBallHeight(towerHeight, seconds) > 0.0)
+    {
+        ++seconds;
+    }
 
     return 0;
 }
