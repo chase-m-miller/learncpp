@@ -6,17 +6,8 @@
 
 bool isPrime(int x)
 {
-    switch (x)
-    {
-    case 0:
+    if (x < 2)
         return false;
-    case 1:
-        return false;
-    case 2:
-        return true;
-    default:
-        break;
-    }
 
     for (int divisor{ 2 }; divisor < x; ++divisor)
     {
