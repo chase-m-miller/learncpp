@@ -1,10 +1,9 @@
 #include "Random.h"
 #include <iostream>
 
-void guessingGame()
+bool guessingGame()
 {
     int answer{ Random::get(1, 100) };
-    bool isWinner = false;
 
     std::cout << "Let's play a game. I'm thinking of a number between 1 and 100. You have 7 tries to guess what it is.\n";
 
@@ -16,8 +15,8 @@ void guessingGame()
 
         if (userGuess == answer)
         {
-            isWinner = true;
-            break;
+            std::cout << "Correct! You win!\n";
+            return true;
         }
         else if (userGuess < answer)
         {
@@ -29,34 +28,35 @@ void guessingGame()
         }
     }
 
-    if (isWinner)
-    {
-        std::cout << "Correct! You win!\n";
-    }
-    else
-    {
-        std::cout << "Sorry, you lose. The correct number was " << answer << ".\n";
-    }
+    std::cout << "Sorry, you lose. The correct number was " << answer << ".\n";
+    return false;
+}
 
+bool playAgain()
+{
     std::cout << "Would you like to play again (y/n)? ";
     
     char playAgain{};
-    while (playAgain != 'y' && playAgain != 'n')
+    while (true)
     {
         std::cin >> playAgain;
-    }
 
-    if (playAgain == 'y')
-    {
-        guessingGame();
+        switch (playAgain)
+        {
+        case 'y':
+            return true;
+        case 'n':
+            return false;
+        }
     }
-
-    return;
 }
 
 int main()
 {
-    guessingGame();
-
+    do
+    {
+        guessingGame();
+    } while (playAgain());
+    
     return 0;
 }
