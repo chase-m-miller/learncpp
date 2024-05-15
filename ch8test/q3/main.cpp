@@ -1,13 +1,11 @@
 #include "Random.h"
 #include <iostream>
 
-bool guessingGame()
+bool guessingGame(int answer, int guesses)
 {
-    int answer{ Random::get(1, 100) };
-
     std::cout << "Let's play a game. I'm thinking of a number between 1 and 100. You have 7 tries to guess what it is.\n";
 
-    for (int guesses{ 7 }; guesses > 0; --guesses)
+    for (; guesses > 0; --guesses)
     {
         std::cout << "Guess #" << guesses << ": ";
         int userGuess{};
@@ -53,9 +51,12 @@ bool playAgain()
 
 int main()
 {
+    constexpr int guesses{ 7 };
+
     do
     {
-        guessingGame();
+        int answer{ Random::get(1, 100) };
+        guessingGame(answer, guesses);
     } while (playAgain());
     
     return 0;
