@@ -24,12 +24,12 @@ bool guessingGame()
         else
         {
             std::cout << "Correct! You win!\n";
-            return true;
+            return true; // player won the game
         }
     }
 
     std::cout << "Sorry, you lose. The correct number was " << answer << ".\n";
-    return false;
+    return false; // player lost the game
 }
 
 bool playAgain()
