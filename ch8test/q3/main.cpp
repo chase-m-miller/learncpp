@@ -13,10 +13,9 @@ bool guessingGame()
         int userGuess{};
         std::cin >> userGuess;
 
-        if (userGuess == answer)
+        if (userGuess > answer)
         {
-            std::cout << "Correct! You win!\n";
-            return true;
+            std::cout << "Your guess is too high.\n";
         }
         else if (userGuess < answer)
         {
@@ -24,7 +23,8 @@ bool guessingGame()
         }
         else
         {
-            std::cout << "Your guess is too high.\n";
+            std::cout << "Correct! You win!\n";
+            return true;
         }
     }
 
