@@ -9,3 +9,22 @@ double reciprocal(double x)
 
     return 1.0 / x;
 }
+
+int main()
+{
+    std::cout << "What number would you like the reciprocal of? ";
+    int x{};
+    std::cin >> x;
+    
+    double reciprocalOfX{ reciprocal(static_cast<double>(x)) };
+    if (reciprocalOfX == 0.0)
+    {
+        std::cout << "Cannot take the reciprocal of 0.\n";
+    }
+    else
+    {
+        std::cout << "The reciprocal of " << x << " is " << reciprocalOfX << ".\n";
+    }
+
+    return 0;
+}
