@@ -2,10 +2,9 @@
 
 double reciprocal(double x)
 {
+    // can't divide by 0, return 0.0 for caller to catch as an error
     if (x == 0.0)
-    {
         return 0.0;
-    }
 
     return 1.0 / x;
 }
