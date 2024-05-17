@@ -4,7 +4,7 @@ double reciprocal(double x)
 {
     // can't divide by 0, return 0.0 for caller to catch as an error
     if (x == 0.0)
-        return 0.0;
+        return 0.0; // 0.0 will never be a valid result, use as error code
 
     return 1.0 / x;
 }
