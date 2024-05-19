@@ -11,18 +11,22 @@ double reciprocal(double x)
 
 int main()
 {
-    std::cout << "What number would you like the reciprocal of? ";
-    int x{};
-    std::cin >> x;
+    while (true)
+    {
+        std::cout << "What number would you like the reciprocal of? ";
+        int x{};
+        std::cin >> x;
     
-    double reciprocalOfX{ reciprocal(static_cast<double>(x)) };
-    if (reciprocalOfX == 0.0)
-    {
-        std::cout << "Cannot take the reciprocal of 0.\n";
-    }
-    else
-    {
+        double reciprocalOfX{ reciprocal(static_cast<double>(x)) };
+        
+        if (reciprocalOfX == 0.0)
+        {
+            std::cout << "Cannot take the reciprocal of 0.\n";
+            continue;
+        }
+
         std::cout << "The reciprocal of " << x << " is " << reciprocalOfX << ".\n";
+        break;
     }
 
     return 0;
