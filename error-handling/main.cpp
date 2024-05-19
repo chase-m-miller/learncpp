@@ -14,10 +14,10 @@ int main()
     while (true)
     {
         std::cout << "What number would you like the reciprocal of? ";
-        int x{};
+        double x{};
         std::cin >> x;
     
-        double reciprocalOfX{ reciprocal(static_cast<double>(x)) };
+        double reciprocalOfX{ reciprocal(x) };
         
         if (reciprocalOfX == 0.0)
         {
