@@ -1,15 +1,22 @@
 #include "Random.h"
 #include <iostream>
 
+int getGuess(int numGuesses)
+{
+    std::cout << "Guess #" << numGuesses << ": ";
+    int guess{};
+    std::cin >> guess;
+
+    return guess;
+}
+
 bool guessingGame(int answer, int guesses)
 {
     std::cout << "Let's play a game. I'm thinking of a number between 1 and 100. You have 7 tries to guess what it is.\n";
 
     for (; guesses > 0; --guesses)
     {
-        std::cout << "Guess #" << guesses << ": ";
-        int userGuess{};
-        std::cin >> userGuess;
+        int userGuess{ getGuess(guesses) };
 
         if (userGuess > answer)
         {
