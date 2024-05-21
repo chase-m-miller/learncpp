@@ -9,11 +9,22 @@ void ignoreLine()
 
 int getGuess(int numGuesses)
 {
-    std::cout << "Guess #" << numGuesses << ": ";
-    int guess{};
-    std::cin >> guess;
+    while (true)
+    {
+        std::cout << "Guess #" << numGuesses << ": ";
+        int guess{};
+        std::cin >> guess;
 
-    return guess;
+        if (!std::cin)
+        {
+            std::cout << "Extraction failed. Input an integer 1 through 100.\n";
+            std::cin.clear();
+            ignoreLine();
+            continue;
+        }
+
+        return guess;
+    }
 }
 
 bool guessingGame(int answer, int guesses)
