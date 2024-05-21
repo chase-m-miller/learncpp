@@ -22,6 +22,11 @@ int getGuess(int numGuesses)
             ignoreLine();
             continue;
         }
+        else if (guess < 1 || guess > 100)
+        {
+            std::cout << "Please enter an integer between 1 and 100.\n";
+            continue;
+        }
 
         return guess;
     }
