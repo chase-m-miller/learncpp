@@ -33,11 +33,9 @@ int getGuess(int numGuesses)
         int guess{};
         std::cin >> guess;
 
-        if (!std::cin)
+        if (clearFailedExtraction())
         {
             std::cout << "Extraction failed. Input an integer 1 through 100.\n";
-            std::cin.clear();
-            ignoreLine();
             continue;
         }
         else if (guess < 1 || guess > 100)
@@ -46,6 +44,7 @@ int getGuess(int numGuesses)
             continue;
         }
 
+        ignoreLine();
         return guess;
     }
 }
