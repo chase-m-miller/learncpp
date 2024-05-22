@@ -7,6 +7,24 @@ void ignoreLine()
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
+bool clearFailedExtraction()
+{
+    if (!std::cin)
+    {
+        if (std::cin.eof())
+        {
+            exit(0);
+        }
+
+        std::cin.clear();
+        ignoreLine();
+
+        return true;
+    }
+
+    return false;
+}
+
 int getGuess(int numGuesses)
 {
     while (true)
