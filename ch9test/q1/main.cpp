@@ -11,11 +11,13 @@ bool clearFailedExtraction()
 {
     if (!std::cin)
     {
+        // On Unix based systems a failed extraction may close the stream, in that case exit the program
         if (std::cin.eof())
         {
             exit(0);
         }
 
+        // Clear std::cin's failure status and remove remaining data in the buffer
         std::cin.clear();
         ignoreLine();
 
@@ -33,6 +35,7 @@ int getGuess(int numGuesses)
         int guess{};
         std::cin >> guess;
 
+        // This will only trigger if std::cin returns false, signifying a failed extraction
         if (clearFailedExtraction())
         {
             std::cout << "Extraction failed. Input an integer 1 through 100.\n";
