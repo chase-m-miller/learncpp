@@ -1,6 +1,11 @@
 #include <iostream>
 
 // write your sub function template here
+template <typename T, typename U>
+auto sub(T x, U y)
+{
+    return x - y;
+}
 
 int main()
 {
