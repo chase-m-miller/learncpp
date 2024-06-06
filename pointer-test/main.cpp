@@ -1,14 +1,20 @@
 #include <iostream>
 
-void isNullPtr(int* ptr)
+void isNullPtr(const int* ptr)
 {
     std::cout << (ptr ? "Pointer is not null.\n" : "Pointer is null.\n");
+}
+
+void print(const int& num)
+{
+    std::cout << num << '\n';
 }
 
 int main()
 {
     int x { 10 };
     int* ptr { &x };
+    int& ref { x };
 
     std::cout << x << '\n';
 
@@ -19,6 +25,8 @@ int main()
 
     ptr = nullptr;
     isNullPtr(ptr);
+
+    print(ref);
 
     return 0;
 }
