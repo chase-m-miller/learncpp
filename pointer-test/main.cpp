@@ -10,6 +10,12 @@ void print(const int& num)
     std::cout << num << '\n';
 }
 
+std::string_view printStringView()
+{
+    std::string_view str { "This a string_view.\n" };
+    return str;
+}
+
 int main()
 {
     int x { 10 };
@@ -27,6 +33,8 @@ int main()
     isNullPtr(ptr);
 
     print(ref);
+
+    std::cout << printStringView();
 
     return 0;
 }
