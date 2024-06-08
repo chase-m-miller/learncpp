@@ -7,9 +7,9 @@ int returnInt(int x)
 }
 
 // out parameter
-void incrementInt(int* x)
+void incrementInt(int& x)
 {
-    (*x)++;
+    x++;
 }
 
 int main()
@@ -18,7 +18,7 @@ int main()
 
     std::cout << returnInt(x) << '\n';
 
-    incrementInt(&x);
+    incrementInt(x);
     std::cout << x << '\n';
 
     return 0;
