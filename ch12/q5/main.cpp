@@ -1,4 +1,11 @@
 #include <iostream>
+#include <algorithm>
+
+void sort2(int& smaller, int& larger)
+{
+    if (smaller > larger)
+        std::swap(smaller, larger);
+}
 
 int main()
 {
