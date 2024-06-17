@@ -20,11 +20,17 @@ std::string_view getColor(Color color)
     }
 }
 
+std::ostream& operator<<(std::ostream& out, Color color)
+{
+    out << getColor(color);
+    return out;
+}
+
 int main()
 {
     Color shirt { red };
     
-    std::cout << "The color of your shirt is " << getColor(shirt) << ".\n";
+    std::cout << "The color of your shirt is " << shirt << ".\n";
 
     return 0;
 }
