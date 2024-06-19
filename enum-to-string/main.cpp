@@ -3,7 +3,7 @@
 #include <string_view>
 #include <optional>
 
-enum Color
+enum class Color
 {
     black,
     red,
@@ -15,20 +15,20 @@ std::string_view getColor(Color color)
 {
     switch(color)
     {
-    case black: return "black";
-    case red:   return "red";
-    case blue:  return "blue";
-    case green: return "green";
+    case Color::black: return "black";
+    case Color::red:   return "red";
+    case Color::blue:  return "blue";
+    case Color::green: return "green";
     default:    return "Color not found.";
     }
 }
 
 std::optional<Color> getColorFromString(std::string_view sv)
 {
-    if (sv == "black") return black;
-    if (sv == "red")   return red;
-    if (sv == "blue")  return blue;
-    if (sv == "green") return green;
+    if (sv == "black") return Color::black;
+    if (sv == "red")   return Color::red;
+    if (sv == "blue")  return Color::blue;
+    if (sv == "green") return Color::green;
 
     return {};
 }
@@ -62,7 +62,7 @@ std::istream& operator>>(std::istream& in, Color& color)
 
 int main()
 {
-    Color shirt { red };
+    Color shirt { Color::red };
     std::cout << "The color of your shirt is " << shirt << ".\n";
 
     std::cout << "Enter black, red, blue, or green: ";
