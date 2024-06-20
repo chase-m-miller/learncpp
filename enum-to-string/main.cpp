@@ -13,22 +13,26 @@ enum class Color
 
 std::string_view getColor(Color color)
 {
+    using enum Color;
+
     switch(color)
     {
-    case Color::black: return "black";
-    case Color::red:   return "red";
-    case Color::blue:  return "blue";
-    case Color::green: return "green";
+    case black: return "black";
+    case red:   return "red";
+    case blue:  return "blue";
+    case green: return "green";
     default:    return "Color not found.";
     }
 }
 
 std::optional<Color> getColorFromString(std::string_view sv)
 {
-    if (sv == "black") return Color::black;
-    if (sv == "red")   return Color::red;
-    if (sv == "blue")  return Color::blue;
-    if (sv == "green") return Color::green;
+    using enum Color;
+
+    if (sv == "black") return black;
+    if (sv == "red")   return red;
+    if (sv == "blue")  return blue;
+    if (sv == "green") return green;
 
     return {};
 }
