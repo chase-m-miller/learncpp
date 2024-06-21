@@ -28,32 +28,36 @@ std::string_view getAnimalName(Animal animal)
     }
 }
 
-std::string_view getNumberOfLegs(Animal animal)
+void printNumberOfLegs(Animal animal)
 {
     using enum Animal;
+
+    std::cout << "A " << getAnimalName(animal) << " has ";
 
     switch(animal)
     {
     case chicken:
     case duck:
-        return "2 legs";
+        std::cout << "2 legs";
+        break;
     case pig:
     case goat:
     case cat:
     case dog:
-        return "4 legs";
+        std::cout << "4 legs";
+        break;
     default:
-        return "No match found.";
+        std::cout << "No match found";
+        break;
     }
+
+    std::cout << ".\n";
 }
 
 int main()
 {
-    Animal cat { Animal::cat };
-    Animal chicken { Animal::chicken };
-
-    std::cout << "A " << getAnimalName(cat) << " has " << getNumberOfLegs(cat) << ".\n";
-    std::cout << "A " << getAnimalName(chicken) << " has " << getNumberOfLegs(chicken) << ".\n";
+    printNumberOfLegs(Animal::cat);
+    printNumberOfLegs(Animal::chicken);
 
     return 0;
 }
