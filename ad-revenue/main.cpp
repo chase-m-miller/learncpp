@@ -7,7 +7,7 @@ struct AdData
     double EarningsPerClick { 0.0 };
 };
 
-void printAdData(AdData ad)
+void printAdData(const AdData& ad)
 {
     std::cout << "Ad's view count:     " << ad.WatchCount << '\n';
     std::cout << "Percentage clicked:  " << ad.ClickPercentage << "%\n";
