@@ -3,25 +3,28 @@
 #include <string_view>
 
 // an ogre, a dragon, an orc, a giant spider, or a slime
-enum MonsterType
-{
-    ogre,
-    dragon,
-    orc,
-    spider,
-    slime,
-};
 
 struct Monster
 {
+    enum Type
+    {
+        ogre,
+        dragon,
+        orc,
+        spider,
+        slime,
+    };
+
     std::string_view name { "Unknown" };
-    MonsterType enemyType { slime };
+    Type type { slime };
     int hp { 100 };
 };
 
-std::string_view getMonsterType(Monster monster)
+std::string_view getMonsterTypeSV(Monster monster)
 {
-    switch(monster.enemyType)
+    using enum Monster::Type;
+    
+    switch(monster.type)
     {
         case ogre:   return "Ogre";
         case dragon: return "Dragon";
@@ -34,11 +37,13 @@ std::string_view getMonsterType(Monster monster)
 
 void printMonster(Monster monster)
 {
-    std::cout << "This " << getMonsterType(monster) << " is named " << monster.name << " and has " << monster.hp << " hp.\n";
+    std::cout << "This " << getMonsterTypeSV(monster) << " is named " << monster.name << " and has " << monster.hp << " hp.\n";
 }
 
 int main()
 {
+    using enum Monster::Type;
+    
     Monster torg  { "Torg", orc, 145 };   // Torg the Orc with 145 HP
     Monster blurp { "Blurp", slime, 23 }; // Blurp the Slime with 23 HP
 
