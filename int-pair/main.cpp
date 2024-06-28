@@ -15,6 +15,11 @@ struct IntPair
     {
         return (x == intPair.x) && (y == intPair.y);
     }
+
+    void incrementXBy(const int addValue)
+    {
+        x += addValue;
+    }
 };
 
 int main()
@@ -30,6 +35,10 @@ int main()
 
     std::cout << "p1 and p1 " << (p1.isEqual(p1) ? "are equal\n" : "are not equal\n");
 	std::cout << "p1 and p2 " << (p1.isEqual(p2) ? "are equal\n" : "are not equal\n");
+
+    p1.print();
+    p1.incrementXBy(5);
+    p1.print();
 
 	return 0;
 }
