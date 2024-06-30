@@ -23,14 +23,14 @@ class Snake
 {
 public:
 
-    void printName()
+    std::string_view getName() const
     {
-        std::cout << m_name;
+        return m_name;
     }
 
-    void printNumLegs()
+    int getNumLegs() const
     {
-        std::cout << m_numLegs;
+        return m_numLegs;
     }
 
 private:
@@ -42,7 +42,7 @@ private:
 int main()
 {
     constexpr Snake animal;
-    std::cout << "a " << animal.printName() << " has " << animal.printNumLegs() << " legs\n";
+    std::cout << "a " << animal.getName() << " has " << animal.getNumLegs() << " legs\n";
 
     return 0;
 }
