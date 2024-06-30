@@ -10,36 +10,46 @@ class Point3d
 {
 private:
 
-    int m_x;
-    int m_y;
-    int m_z;
+    int m_x {};
+    int m_y {};
+    int m_z {};
 
 public:
 
-    void setValues()
+    void setValues(int x, int y, int z)
     {
-        std::cout << "Enter a value for x: ";
-        std::cin >> m_x;
-
-        std::cout << "Enter a value for y: ";
-        std::cin >> m_y;
-
-        std::cout << "Enter a value for z: ";
-        std::cin >> m_z;
+        m_x = x;
+        m_y = y;
+        m_z = z;
     }
 
     void print()
     {
-        std::cout << '<' << m_x << ", " << m_y << ", " << m_z << ">\n";
+        std::cout << '<' << m_x << ", " << m_y << ", " << m_z << '>';
+    }
+
+    bool isEqual(const Point3d& coordinates)
+    {
+        if (m_x != coordinates.m_x || m_y != coordinates.m_y || m_z != coordinates.m_z)
+            return false;
+        else
+            return true;
     }
 };
 
 int main()
 {
-    Point3d coordinates;
-    coordinates.setValues();
+    Point3d point1;
+    point1.setValues(1, 2, 3);
 
-    coordinates.print();
+    Point3d point2;
+    point2.setValues(1, 2, 3);
+
+    std::cout << "Point 1 and point 2 are " << (point1.isEqual(point2) ? "" : "not ") << "equal.\n";
+
+    point2.setValues(2, 3, 4);
+
+    std::cout << "Point 1 and point 2 are " << (point1.isEqual(point2) ? "" : "not ") << "equal.\n";
 
     return 0;
 }
