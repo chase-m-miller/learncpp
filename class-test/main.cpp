@@ -23,17 +23,14 @@ public:
         m_z = z;
     }
 
-    void print()
+    void print() const
     {
         std::cout << '<' << m_x << ", " << m_y << ", " << m_z << '>';
     }
 
-    bool isEqual(const Point3d& coordinates)
+    bool isEqual(const Point3d& coordinates) const
     {
-        if (m_x != coordinates.m_x || m_y != coordinates.m_y || m_z != coordinates.m_z)
-            return false;
-        else
-            return true;
+        return (m_x == coordinates.m_x) && (m_y == coordinates.m_y) && (m_z == coordinates.m_z);
     }
 };
 
