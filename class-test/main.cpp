@@ -22,6 +22,10 @@ public:
         m_y = y;
         m_z = z;
     }
+    
+    int getX() const { return m_x; }
+    int getY() const { return m_y; }
+    int getZ() const { return m_z; }
 
     void print() const
     {
