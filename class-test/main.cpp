@@ -23,9 +23,9 @@ public:
         m_z = z;
     }
     
-    int getX() const { return m_x; }
-    int getY() const { return m_y; }
-    int getZ() const { return m_z; }
+    const int getX() const { return m_x; }
+    const int getY() const { return m_y; }
+    const int getZ() const { return m_z; }
 
     void print() const
     {
